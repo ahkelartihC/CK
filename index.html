@@ -19,14 +19,15 @@
       font-family:'Space Grotesk', 'Montserrat', sans-serif;
       background:var(--bg);
       color:var(--muted);
+      cursor: default;
       -webkit-font-smoothing:antialiased;
       overflow:hidden;
     }
     .wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
     .hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;position:relative;width:100%;padding:20px}
-    .logoShell{width:300px;height:300px;display:flex;align-items:center;justify-content:center;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);transition:all 2s ease-in-out;z-index:10;}
+    .logoShell{width:200px;height:200px;display:flex;align-items:center;justify-content:center;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.5);transition:all 2s ease-in-out;z-index:10;}
     .logoShell svg{width:100%;height:100%;display:block}
-    h1{margin:0;font-size:clamp(28px,6vw,48px);font-weight:700;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;transition:opacity 1.2s ease-in-out 2.5s}
+    h1{margin:0;font-size:clamp(28px,6vw,48px);font-weight:700;background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;transition:opacity 1s ease-in-out 2s}
     h1.show{opacity:1}
     p.lead{margin:6px 0 0;color:rgba(240,240,240,0.85);opacity:0;transition:opacity 1.2s ease-in-out 2.6s;font-size:clamp(14px,2.5vw,18px)}
     p.lead.show{opacity:1}
@@ -39,16 +40,29 @@
     .countdown-note.show{opacity:0.6;}
     .tagline{font-size:clamp(12px,2vw,14px);opacity:1;margin-top:16px;transition:opacity 1s ease-in-out 0s;}
     .tagline.show{opacity:1;}
+
+    .linkedin-note {
+      font-size: clamp(10px, 1.5vw, 12px);
+      color: rgba(240,240,240,0.7);
+      margin-top: 6px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out 2.8s; /* fades in with other text */
+      text-align: center;
+    }
+    .linkedin-note.show { opacity: 1; }
+    .linkedin-note a { color: var(--accent2); text-decoration: none; }
+    .linkedin-note a:hover { text-decoration: underline; }
+
     .sparkle{position:absolute;width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,var(--accent1),var(--accent2));opacity:0;pointer-events:none;animation:sparkleAnim 1.2s forwards}
     @keyframes sparkleAnim{
       0%{opacity:1;transform:translate(0,0) scale(0.5)}
       50%{opacity:1;transform:translate(15px,-15px) scale(1)}
-      100%{opacity:0;transform:translate(30px,-30px) scale(0.3)}
+      100%{opacity:0;transform:translate(30px,-30px) scale(0.35)}
     }
-    .flyTopLeft{top:20px;left:10px;transform:translate(0,0) scale(0.4);}
+    .flyTopLeft{top:0.5vh;left:0.5vw;transform:translate(0,0) scale(0.4);}
     .butterfly-wing{transform-origin:50% 50%;}
-    .wing-left{animation:wingFlap 0.9s cubic-bezier(.22,.9,.3,1) 0s 3 both}
-    .wing-right{animation:wingFlap 0.9s cubic-bezier(.22,.9,.3,1) 0.05s 3 both}
+    .wing-left{animation:wingFlap 0.5s cubic-bezier(.22,.9,.3,1) 0s 3 both}
+    .wing-right{animation:wingFlap 0.5s cubic-bezier(.22,.9,.3,1) 0.08s 3 both}
     @keyframes wingFlap{
       0%{transform:rotate(0) translateX(0) scaleY(1)}
       30%{transform:rotate(-18deg) translateX(-4px) scaleY(0.96)}
@@ -74,8 +88,8 @@
           </defs>
           <path class="butterfly-wing wing-left" d="M50 100 C20 40, 40 20, 70 50 C80 70, 60 90, 50 100 Z" fill="url(#g1)" />
           <path class="butterfly-wing wing-right" d="M150 100 C180 40, 160 20, 130 50 C120 70, 140 90, 150 100 Z" fill="url(#g1)" />
-          <path d="M95 85 C85 85,85 115,95 115" stroke="#fff" stroke-width="5" fill="none" />
-          <path d="M105 85 L105 115 M105 100 L125 85 M105 100 L125 115" stroke="#fff" stroke-width="5" fill="none" />
+          <path d="M95 95 C75 85,87 130,97 115" stroke="#fff" stroke-width="5" fill="none" />
+          <path d="M105 90 L105 115 M105 100 L125 85 M105 100 L125 115" stroke="#fff" stroke-width="5" fill="none" />
         </svg>
       </div>
       <h1 id="headline">:)</h1>
@@ -88,6 +102,10 @@
       </div>
       <div class="countdown-note" id="note">Countdown here's to keep me on track.</div>
       <div class="tagline" id="launchLine">Chitralekha Kalavala</div>
+      <div class="linkedin-note">
+        Keep an 👀 on my <a href="https://www.linkedin.com/in/chitrakalavala" target="_blank">LinkedIn</a> for updates!
+      </div>
+      
     </div>
   </div>
   <script>
@@ -112,8 +130,8 @@
       const countdown = document.getElementById('countdown');
       const tagline = document.getElementById('launchLine');
       const note = document.getElementById('note');
-
-      // Show tagline from start
+      const linkedinNote = document.querySelector('.linkedin-note');
+      // Showing tagline from start
       tagline.classList.add('show');
 
       setTimeout(()=>{
@@ -128,6 +146,7 @@
         note.classList.add('show');
         document.getElementById('headline').classList.add('show');
         document.querySelector('p.lead').classList.add('show');
+        linkedinNote.classList.add('show');
       },2000);
     });
   </script>
