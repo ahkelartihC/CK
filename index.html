@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Chitralekha Kalavala</title>
-  <meta name="description" content="CK portfolio launching Jan 26, 2026" />
+  <meta name="description" content="CK portfolio launching Sep 6, 2026" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -46,7 +46,7 @@
       color: rgba(240,240,240,0.7);
       margin-top: 6px;
       opacity: 0;
-      transition: opacity 1s ease-in-out 2.8s; /* fades in with other text */
+      transition: opacity 1s ease-in-out 2.8s; /* to fade in with other text */
       text-align: center;
     }
     .linkedin-note.show { opacity: 1; }
@@ -93,14 +93,14 @@
         </svg>
       </div>
       <h1 id="headline">:)</h1>
-      <p class="lead">A space for all my projects, learnings, experiments & notes — live 26.Jan.26!</p>
+      <p class="lead">A space for all my projects, learnings, experiments & notes — live 6.Sep.26!</p>
       <div class="countdown" id="countdown" aria-live="polite">
         <div class="unit"><div class="num" id="days">--</div><div class="label">Days</div></div>
         <div class="unit"><div class="num" id="hours">--</div><div class="label">Hours</div></div>
         <div class="unit"><div class="num" id="minutes">--</div><div class="label">Minutes</div></div>
         <div class="unit"><div class="num" id="seconds">--</div><div class="label">Seconds</div></div>
       </div>
-      <div class="countdown-note" id="note">Countdown here's to keep me on track.</div>
+      <div class="countdown-note" id="note">Countdown here's to keep me on track :]</div>
       <div class="tagline" id="launchLine">Chitralekha Kalavala</div>
       <div class="linkedin-note">
         Keep an 👀 on my <a href="https://www.linkedin.com/in/chitrakalavala" target="_blank">LinkedIn</a> for updates!
@@ -108,8 +108,9 @@
       
     </div>
   </div>
-  <script>
-    const LAUNCH_DATE = new Date(Date.UTC(2026, 0, 26, 6, 0, 0));
+  <script> 
+    //date&time
+    const LAUNCH_DATE = new Date(Date.UTC(2026, 8, 6, 6, 0, 0));
     function updateCountdown(){
       const now = new Date();
       const diff = LAUNCH_DATE - now;
